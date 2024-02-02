@@ -7,7 +7,12 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 
-app.use(cors());
+var corsOptions = {
+    origin: ["https://ashmeetsingh2000.github.io/chatapp/", "http://localhost:5500"],
+    optionsSuccessStatus: 200 // For legacy browser support
+}
+
+app.use(cors(corsOptions));
 
 // chat app local data
 var chat_data = new Map();
