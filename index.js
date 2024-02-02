@@ -2,7 +2,6 @@ const express = require('express');
 const cors = require('cors')
 
 const app = express();
-const port = process.env.PORT || 8080;
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.json({ limit: '50mb' }));
@@ -16,6 +15,12 @@ var chat_data = new Map();
 var chat_members = ['ashmeet', 'shalu', 'ranjana'];
 // chat app local data
 
+
+// home page api hit
+app.use('/', function (req, res) {
+    res.send('Server is running')
+})
+// home page api hit
 
 // login check api
 app.post('/login', function (req, res) {
@@ -117,5 +122,5 @@ setInterval(() => {
 }, 2000);
 // constant loop to maintain a number of messages
 
-app.listen(port);
-console.log('Server started at http://localhost:' + port);
+app.listen(5000);
+console.log('Server listening on port 5000');
