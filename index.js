@@ -16,12 +16,6 @@ var chat_members = ['ashmeet', 'shalu', 'ranjana'];
 // chat app local data
 
 
-// home page api hit
-app.use('/', function (req, res) {
-    res.send('Server is running')
-})
-// home page api hit
-
 // login check api
 app.post('/login', function (req, res) {
     let name_to_check = req.body.username;
