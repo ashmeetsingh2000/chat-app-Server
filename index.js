@@ -8,7 +8,7 @@ app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 
 var corsOptions = {
-    origin: ["https://ashmeetsingh2000.github.io/chatapp/", "http://localhost:5500"],
+    origin: "http://127.0.0.1:5500",
     optionsSuccessStatus: 200 // For legacy browser support
 }
 
