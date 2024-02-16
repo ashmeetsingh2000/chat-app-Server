@@ -8,12 +8,20 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 
+const hostname = "127.0.0.1";
+const port = 5000;
 
 // chat app local data
 var chat_data = new Map();
 var chat_members = ['ashmeet', 'shalu', 'ranjana'];
 // chat app local data
 
+var corsOptions = {
+    origin: '*',
+    optionsSuccessStatus: 200 // For legacy browser support
+}
+
+app.use(cors(corsOptions));
 
 // login check api
 app.post('/login', function (req, res) {
@@ -115,5 +123,6 @@ setInterval(() => {
 }, 2000);
 // constant loop to maintain a number of messages
 
-app.listen(5000);
-console.log('Server listening on port 5000');
+app.listen(port);
+
+console.log(`Server running at http://${hostname}:${port}/`);
